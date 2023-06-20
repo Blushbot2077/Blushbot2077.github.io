@@ -6,7 +6,16 @@
     <description>Recent content on 健康第一!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Jun 2023 16:21:37 +0900</lastBuildDate><atom:link href="https://blushbot2077.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jun 2023 23:07:35 +0900</lastBuildDate><atom:link href="https://blushbot2077.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computonal_mechanism</title>
+      <link>https://blushbot2077.github.io/post/computonal_mechanism/</link>
+      <pubDate>Tue, 20 Jun 2023 23:07:35 +0900</pubDate>
+      
+      <guid>https://blushbot2077.github.io/post/computonal_mechanism/</guid>
+      <description>你是猪吗? 你是猪! 你是不是猪!</description>
+    </item>
+    
     <item>
       <title>fMRI脑成像预处理(SPM12 Preprocessing)</title>
       <link>https://blushbot2077.github.io/post/preprocessing/</link>
