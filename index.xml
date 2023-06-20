@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>健康第一!</title>
-    <link>https://blushbot2077.github.io/</link>
+    <link>https://blushbot.ppfarm.boats/</link>
     <description>Recent content on 健康第一!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Jun 2023 23:07:35 +0900</lastBuildDate><atom:link href="https://blushbot2077.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jun 2023 23:07:35 +0900</lastBuildDate><atom:link href="https://blushbot.ppfarm.boats/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Computonal_mechanism</title>
-      <link>https://blushbot2077.github.io/post/computonal_mechanism/</link>
+      <link>https://blushbot.ppfarm.boats/post/computonal_mechanism/</link>
       <pubDate>Tue, 20 Jun 2023 23:07:35 +0900</pubDate>
       
-      <guid>https://blushbot2077.github.io/post/computonal_mechanism/</guid>
+      <guid>https://blushbot.ppfarm.boats/post/computonal_mechanism/</guid>
       <description>你是猪吗? 你是猪! 你是不是猪!</description>
     </item>
     
     <item>
       <title>fMRI脑成像预处理(SPM12 Preprocessing)</title>
-      <link>https://blushbot2077.github.io/post/preprocessing/</link>
+      <link>https://blushbot.ppfarm.boats/post/preprocessing/</link>
       <pubDate>Tue, 20 Jun 2023 16:21:37 +0900</pubDate>
       
-      <guid>https://blushbot2077.github.io/post/preprocessing/</guid>
+      <guid>https://blushbot.ppfarm.boats/post/preprocessing/</guid>
       <description>&lt;p&gt;Convert, FieldMap , 以及Preproceesing&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>About Hugo</title>
-      <link>https://blushbot2077.github.io/about/</link>
+      <link>https://blushbot.ppfarm.boats/about/</link>
       <pubDate>Sat, 11 Apr 2020 19:15:32 +0800</pubDate>
       
-      <guid>https://blushbot2077.github.io/about/</guid>
+      <guid>https://blushbot.ppfarm.boats/about/</guid>
       <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
 Hugo makes use of a variety of open source projects including:
 https://github.com/yuin/goldmark https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
