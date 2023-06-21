@@ -111,7 +111,7 @@
     <div class="post-item post-meta">
         <span><i class="iconfont icon-today-sharp"></i>&nbsp;2023-06-20</span>
 
-<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;317 words</span>
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;894 words</span>
 
 <span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">SPM12学习笔记</a>&nbsp;</span>
 
@@ -121,14 +121,25 @@
         <p>Convert, FieldMap , 以及Preproceesing</p>
 <h2 id="convert-dicom---nifti">Convert DICOM - NIfTI</h2>
 <p>两种方法: SPM12 DICOM import 和 MRIcroGL(dcm2niix)</p>
-<ul>
-<li>
-<p>MRIcroGL的注意事项:</p>
-<p>参考了<a href="https://andysbrainbook.readthedocs.io/en/latest/MRIcroGL/MRIcroGL_Overview.html" target="_blank">Andysbrainbook</a>.</p>
-<p>MRIcroGL is also used for visualizing imaging data, especially group-level results. 但目前只用来转换成NIfTI文件.</p>
-<p>安装 <a href="https://www.nitrc.org/projects/mricrogl" target="_blank">MRIcroGL</a></p>
-</li>
-</ul>
+<p>直接使用 SPM12 转换非常简单，但缺点是无法看到 DICOM 文件的原始数据（比如TR，TE），可能会对 Fieldmap 校正选择参数带来一些困难。而使用 MRIcroGL 则可以额外生成保留原数据的 json 文件。因此这里主要说明 MRIcroGL 的操作方法。</p>
+<p>MRIcroGL is also used for visualizing imaging data, especially group-level results. 但目前只用来转换成 NIfTI 文件.</p>
+<p>以下内容参考了<a href="https://andysbrainbook.readthedocs.io/en/latest/MRIcroGL/MRIcroGL_Overview.html" target="_blank">Andysbrainbook</a>.</p>
+<h3 id="安装-mricroglhttpswwwnitrcorgprojectsmricrogl">安装 <a href="https://www.nitrc.org/projects/mricrogl" target="_blank">MRIcroGL</a></h3>
+<p>安装后进入软件,菜单栏选中<code>import</code>-&gt;<code>Convert DICOM to NIfTI</code>,会看到如下界面:</p>
+<p>
+    <img src="/img/DICOMtoNIFTI_GUI.png" alt="MRIcroGL GUI" />
+  </p>
+<p><code>Output Filename</code>：默认是格式化运算符<code>%f_%p_%t_%s</code>,鼠标停留在名称上会有每个变量的具体说明,可以根据需要修改转换后输出的名称。</p>
+<p><code>Output Derictiory</code>：输出路径，默认与DICOM文件在同一个文件夹。</p>
+<p><code>Output Format</code>：输出格式，默认是compressed NIfTI. 但请注意,SPM无法打开压缩的文件（AFNI和FSL都可以打开），建议手动选择<strong>uncompressed NIFTI</strong>。</p>
+<p><code>Create BIDS Sidecar</code>：该选项会创建一个包含原DICOM数据的Javascript Object Notation (.json)文件，包括slice-timing, slice order, the repetition time, echo time 等等。其中，Echo time 是 Fieldmap 时很重要的一个参数。</p>
+<h3 id="converting-the-dicom-files-using-mricrogl">Converting the DICOM Files using MRIcroGL</h3>
+<p>可以通过鼠标拖拽或者<code>Select Folder to Convert</code> 按钮选择想要转换的DICOM文件夹，右侧窗口会显示转换完成。</p>
+<p>
+    <img src="/img/02_ConvertedFiles.png" alt="MRIcroGL GUI" />
+  </p>
+<h3 id="running-dicom-to-nifti-from-the-command-line">Running DICOM to NIFTI from the Command Line</h3>
+<p>（还没使用过）</p>
 <h2 id="fieldmap">FieldMap</h2>
 <h2 id="realignment">Realignment</h2>
 <p>修正EPI的位移</p>
@@ -139,11 +150,14 @@
 <p>将T1分解为标准脑6要素,分割后称为TPM</p>
 <h2 id="normalisation">Normalisation</h2>
 <p><strong>EPI标准化</strong></p>
-<p>为了把Coregistration过后的图像和MNI标准脑TPM重合而进行计算</p>
+<p>为了把 Coregistration 过后的图像和 MNI 标准脑 TPM 重合而进行计算</p>
 <h2 id="smoothing">Smoothing</h2>
-<p><strong>EPI空间平滑化</strong></p>
+<p><strong>EPI空间平滑化</strong>
+使用 filter 去除 noise.</p>
 <p>空间上<strong>幅</strong>的表示方法:半值全幅(FWHM,Full Width at Half Maximum)</p>
-<p>半值全幅(FWHM),指从peak</p>
+<p>半值全幅(FWHM),指从 peak 开始高度一半地方的宽度.
+FWHM的值一般是voxel的2-3倍,不过在评价杏仁核这样的小结构时,也用1.5倍这样的小数值.
+FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像和平均的相邻voxel相关度变高).</p>
     </div>
 </article>
 
@@ -211,7 +225,13 @@
     <div class="sidebar-item sidebar-toc">
         <h3>Table of Contents</h3><nav id="TableOfContents">
   <ul>
-    <li><a href="#convert-dicom---nifti">Convert DICOM - NIfTI</a></li>
+    <li><a href="#convert-dicom---nifti">Convert DICOM - NIfTI</a>
+      <ul>
+        <li><a href="#安装-mricroglhttpswwwnitrcorgprojectsmricrogl">安装 <a href="https://www.nitrc.org/projects/mricrogl">MRIcroGL</a></a></li>
+        <li><a href="#converting-the-dicom-files-using-mricrogl">Converting the DICOM Files using MRIcroGL</a></li>
+        <li><a href="#running-dicom-to-nifti-from-the-command-line">Running DICOM to NIFTI from the Command Line</a></li>
+      </ul>
+    </li>
     <li><a href="#fieldmap">FieldMap</a></li>
     <li><a href="#realignment">Realignment</a></li>
     <li><a href="#coregistration">Coregistration</a></li>
@@ -292,7 +312,13 @@
         <h3>Table of Contents</h3>
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#convert-dicom---nifti">Convert DICOM - NIfTI</a></li>
+    <li><a href="#convert-dicom---nifti">Convert DICOM - NIfTI</a>
+      <ul>
+        <li><a href="#安装-mricroglhttpswwwnitrcorgprojectsmricrogl">安装 <a href="https://www.nitrc.org/projects/mricrogl">MRIcroGL</a></a></li>
+        <li><a href="#converting-the-dicom-files-using-mricrogl">Converting the DICOM Files using MRIcroGL</a></li>
+        <li><a href="#running-dicom-to-nifti-from-the-command-line">Running DICOM to NIFTI from the Command Line</a></li>
+      </ul>
+    </li>
     <li><a href="#fieldmap">FieldMap</a></li>
     <li><a href="#realignment">Realignment</a></li>
     <li><a href="#coregistration">Coregistration</a></li>
