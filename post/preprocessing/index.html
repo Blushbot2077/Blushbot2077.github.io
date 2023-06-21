@@ -92,7 +92,7 @@
         <div class="col-12 header">
             <a class="title-main" href="https://blushbot.ppfarm.boats">健康第一!</a>
             
-            <span class="title-sub">睡了</span>
+            <span class="title-sub">努力早睡早起</span>
             
         </div>
     </div>
@@ -111,7 +111,7 @@
     <div class="post-item post-meta">
         <span><i class="iconfont icon-today-sharp"></i>&nbsp;2023-06-20</span>
 
-<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;894 words</span>
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;2161 words</span>
 
 <span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">SPM12学习笔记</a>&nbsp;</span>
 
@@ -140,24 +140,80 @@
   </p>
 <h3 id="running-dicom-to-nifti-from-the-command-line">Running DICOM to NIFTI from the Command Line</h3>
 <p>（还没使用过）</p>
-<h2 id="fieldmap">FieldMap</h2>
+<h2 id="fieldmap-校正">FieldMap 校正</h2>
+<p>FieldMap 校正是指，对成像进行动态或静态的畸变校正。</p>
+<p>SPM12 中使用 Fieldmap toolbox 进行 Fieldmap 校正。</p>
+<p>两个步骤：</p>
+<ol>
+<li><strong>Calculate，计算 VDM（voxel displacement map）</strong></li>
+<li><strong>Apply，使用 VDM 对成像进行校正</strong></li>
+</ol>
+<hr>
+<p>几个我用到的关键参数：</p>
+<ol>
+<li>Calculate VDM.</li>
+</ol>
+<blockquote>
+<p><strong>Echo time</strong>：需要手动输入 Magnitude Image 和 Phase Image 的 short TE 和 long TE。(i.e.,[4.92 7.38])</p>
+<p><strong>Magnitude Image</strong>: 有多个时选择 TE 更小的，有更好的信号强度。</p>
+<p><strong>Phase Image</strong>：信号和radiofrequency pulse的相位。</p>
+<p><strong>Mask brain</strong>: 选择是否 mask brain。如果选择 masking，Magnitude Image 会用来生成一个 brain mask。</p>
+<p><strong>Blip direction</strong>：相位编码方向与 Y 方向（从后脑勺往前额）的关系。+ve 为1，-ve 为-1。</p>
+<p><strong>EPI-based filed map</strong>: 是否基于 EPI 获得的 Fieldmap，基于 EPI 的fieldmap 相当于是在扭曲的空间里获得了场图，因此生成 VDM 将会被调整。</p>
+<p><strong>uflags</strong>: phase unwrapping 和 field map 处理的不同选项。加权平滑。</p>
+<p><strong>mflags</strong>：segmentation 和创建 brain mask 的不同选项。使用 T1 对变形的 EPI 进行校正。</p>
+<p><strong>VDM filename extension</strong>：生成的 VDM 文件的前缀，s。</p>
+<p><strong>Write unwarped EPI?</strong>: 导出校正后的 EPI，前缀是 u。(仅用来quality control of correction)</p>
+</blockquote>
+<p>计算 VDM 需要 MI 和 PI 这两个参数</p>
+<ol start="2">
+<li>Apply VDM.</li>
+</ol>
+<blockquote>
+<p><strong>images</strong>:需要进行场图校正的 EPI。【代码写法】</p>
+<p><strong>Field map</strong> (vdm*file):需要应用的VDM，一个以vdm开头的文件。</p>
+</blockquote>
+<p>P.S. 所有过程都可以以 batch code 方式批量操作。</p>
+<p>校正后的EPI文件的前缀是<strong>wu</strong>，表示&quot;warped and unwarped&quot;。</p>
+<p>校正后的EPI文件保存在与输入EPI图像相同的路径下。</p>
 <h2 id="realignment">Realignment</h2>
-<p>修正EPI的位移</p>
+<p>运动校正，修正EPI的位移</p>
+<p>Realign &amp; Unwarp（运动校正和磁场畸变校正）</p>
+<blockquote>
+<p><strong>Unwarp 和 Field map</strong></p>
+<p>都是用于磁场畸变校正的方法，但具有不同的原理和实施步骤，具体根据实验的需要选用。</p>
+<p>Unwarp（畸变校正）：Unwarp方法是基于图像处理的技术，通过图像重采样和插值来校正图像畸变。它依赖于相邻时间点的fMRI图像信息。Unwarp方法通常需要额外的参考数据（例如，额外的fMRI序列）来估计磁场畸变的模型。</p>
+<p>Field Map（场图法）：Field map方法是基于磁场测量的技术，通过测量磁场变化来估计和校正磁场畸变。它依赖于额外的磁场映射扫描数据。</p>
+</blockquote>
 <h2 id="coregistration">Coregistration</h2>
 <p>将T1登陆到EPI(变换、计算处理)
 有三种变换方式:Affine(平移+旋转的刚体变换),Stretching(保持一个方向不变移动其他方向),Shearing(扩大+缩小变形)</p>
+<ul>
+<li>
+<p>Estimate：estimate用于估计将源图像（EPI）与参考图像（T1）对齐所需的<strong>变换参数</strong>。这些变换参数描述了源图像与参考图像之间的平移（translation）和旋转（rotation）关系，以使它们在相同的坐标空间中对齐。estimate步骤不会对图像进行重采样。</p>
+</li>
+<li>
+<p>Reslice：reslice用于根据先前估计的变换参数对源图像 EPI 进行重采样，以使其与参考图像 T1 在空间上对齐。通过重采样，源图像 EPI 的像素将根据变换参数重新分布和插值，使其与参考图像 T1 的空间坐标一致。在后续分析时，EPI 与 T1 就可以在相同的空间坐标系下进行对应。</p>
+</li>
+<li>
+<p>Estimate &amp; Reslice：estimate &amp; reslice 是将上述两个步骤合并为一个步骤的选项。<strong>一次性</strong>完成 estimate 和 reslice。</p>
+</li>
+</ul>
 <h2 id="segmentation">Segmentation</h2>
 <p>将T1分解为标准脑6要素,分割后称为TPM</p>
 <h2 id="normalisation">Normalisation</h2>
 <p><strong>EPI标准化</strong></p>
 <p>为了把 Coregistration 过后的图像和 MNI 标准脑 TPM 重合而进行计算</p>
 <h2 id="smoothing">Smoothing</h2>
-<p><strong>EPI空间平滑化</strong>
-使用 filter 去除 noise.</p>
+<p><strong>EPI空间平滑化</strong></p>
+<p>通过应用高斯滤波器，对fMRI图像进行空间平滑处理。平滑处理有助于减少噪声和局部变异，提高信号与噪声的比值，并提升数据的统计可靠性。</p>
 <p>空间上<strong>幅</strong>的表示方法:半值全幅(FWHM,Full Width at Half Maximum)</p>
 <p>半值全幅(FWHM),指从 peak 开始高度一半地方的宽度.
 FWHM的值一般是voxel的2-3倍,不过在评价杏仁核这样的小结构时,也用1.5倍这样的小数值.
 FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像和平均的相邻voxel相关度变高).</p>
+<h2 id="reference">Reference</h2>
+<p><a href="https://www.fil.ion.ucl.ac.uk/spm/doc/manual.pdf#Chap:FieldMap" target="_blank">SPM12 Manual</a></p>
+<p><a href="https://usermanual.wiki/Document/SPM1220E5889DE5ADA6E88085E68C87E58D9720SPM1220starters20guide.1138082217.pdf" target="_blank">SPM 中文初学者指南</a></p>
     </div>
 </article>
 
@@ -232,12 +288,13 @@ FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像
         <li><a href="#running-dicom-to-nifti-from-the-command-line">Running DICOM to NIFTI from the Command Line</a></li>
       </ul>
     </li>
-    <li><a href="#fieldmap">FieldMap</a></li>
+    <li><a href="#fieldmap-校正">FieldMap 校正</a></li>
     <li><a href="#realignment">Realignment</a></li>
     <li><a href="#coregistration">Coregistration</a></li>
     <li><a href="#segmentation">Segmentation</a></li>
     <li><a href="#normalisation">Normalisation</a></li>
     <li><a href="#smoothing">Smoothing</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
 </aside>
@@ -319,12 +376,13 @@ FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像
         <li><a href="#running-dicom-to-nifti-from-the-command-line">Running DICOM to NIFTI from the Command Line</a></li>
       </ul>
     </li>
-    <li><a href="#fieldmap">FieldMap</a></li>
+    <li><a href="#fieldmap-校正">FieldMap 校正</a></li>
     <li><a href="#realignment">Realignment</a></li>
     <li><a href="#coregistration">Coregistration</a></li>
     <li><a href="#segmentation">Segmentation</a></li>
     <li><a href="#normalisation">Normalisation</a></li>
     <li><a href="#smoothing">Smoothing</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav>
     </div>
