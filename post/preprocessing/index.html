@@ -13,13 +13,10 @@
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/favicons/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/favicons/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/favicons/favicon-16x16.png" />
-<link rel="manifest" href="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/favicons/site.webmanifest" />
-<link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/favicons/safari-pinned-tab.svg" color="#8aa2d3" />
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/favicons/favicon.ico" />
-<meta name="theme-color" content="#ffffff" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 
 
 <title>fMRI脑成像预处理(SPM12 Preprocessing) - 健康第一!</title>
@@ -111,7 +108,7 @@
     <div class="post-item post-meta">
         <span><i class="iconfont icon-today-sharp"></i>&nbsp;2023-06-20</span>
 
-<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;3224 words</span>
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;3412 words</span>
 
 <span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">SPM12学习笔记</a>&nbsp;</span>
 
@@ -226,21 +223,26 @@
 <h2 id="segmentation">Segmentation</h2>
 <p>将T1分解为标准脑6要素,分割后称为 TPM</p>
 <p>相关的参数：</p>
-<blockquote>
-<p>Channel: 指每个体素（Voxel）在fMRI数据中的观测通道数。通常为1，表示每个体素只有一个观测通道（T1）。</p>
+<p><code>Channel</code>: 指每个体素（Voxel）在fMRI数据中的观测通道数。通常为1，表示每个体素只有一个观测通道（T1）。</p>
 <ul>
 <li>
-<p>Volumes: 从已经选择的channel中选择scan。（这里就选择T1 images）</p>
+<p><code>Volumes</code>: 从已经选择的channel中选择scan。（这里就选择T1 images）</p>
 </li>
 <li>
-<p>Bias regularisation: 用于对磁共振图像中的偏差进行正则化的参数。偏差通常是由磁场非均匀性或硬件特性引起的亮度变化。通过启用偏差正则化，可以减少这些偏差的影响，提高图像质量。
-MR扫描中的intensity variation可能由两种可能引起：MR扫描物理原理引起的偏差伪影（bias artifact），或者不同组织的特性。（light regularisation: 0.001）</p>
+<p><code>Bias regularisation</code>: 用于对磁共振图像中的偏差进行正则化的参数。偏差通常是由磁场非均匀性或硬件特性引起的亮度变化。通过启用偏差正则化，可以减少这些偏差的影响，提高图像质量。
+MR扫描中的intensity variation可能由两种可能引起：MR扫描物理原理引起的偏差伪影（bias artifact），或者不同组织的特性。[light regularisation: 0.001]</p>
 </li>
 <li>
-<p>Bias FWHM:</p>
+<p><code>Bias FWHM</code>: 指定了在偏差校正过程中应用的滤波器的全宽半最大值（Full Width at Half Maximum，FWHM）。较高的FWHM值表示较大的平滑程度，而较低的FWHM值表示较小的平滑程度。该参数控制偏差场的平滑程度。[60 mm cutoff]</p>
+</li>
+<li>
+<p><code>wirte</code>：channel.write = [0 1]表示保存白质和灰质通道的分割结果。（Channel 0：gray matter, Channel 1：white matter, Channel 2：cerebrospinal fluid.）</p>
 </li>
 </ul>
-</blockquote>
+<p><code>tissue</code></p>
+<ul>
+<li><code>Tissue probability map</code>:</li>
+</ul>
 <br>
 <hr>
 <h2 id="normalisation">Normalisation</h2>
@@ -318,6 +320,10 @@ FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像
     <div class="sidebar-item sidebar-tags">
         <h3>Tags</h3>
         <div>
+            
+            <span>
+                <a href="/tags/neuroscience/">Neuroscience</a>
+            </span>
             
             <span>
                 <a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SPM12学习笔记</a>
@@ -402,6 +408,10 @@ FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像
     <div class="sidebar-item sidebar-tags">
         <h3>Tags</h3>
         <div>
+            
+            <span>
+                <a href="/tags/neuroscience/">Neuroscience</a>
+            </span>
             
             <span>
                 <a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SPM12学习笔记</a>
