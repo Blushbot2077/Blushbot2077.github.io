@@ -111,7 +111,7 @@
     <div class="post-item post-meta">
         <span><i class="iconfont icon-today-sharp"></i>&nbsp;2023-06-20</span>
 
-<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;2968 words</span>
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;3224 words</span>
 
 <span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">SPM12学习笔记</a>&nbsp;</span>
 
@@ -176,6 +176,8 @@
 <p>P.S. 所有过程都可以以 batch code 方式批量操作。</p>
 <p>校正后的EPI文件的前缀是<strong>wu</strong>，表示&quot;warped and unwarped&quot;。</p>
 <p>校正后的EPI文件保存在与输入EPI图像相同的路径下。</p>
+<br>
+<hr>
 <h2 id="realignment">Realignment</h2>
 <p>运动校正，修正EPI的位移</p>
 <p>Realign &amp; Unwarp（运动校正和磁场畸变校正）</p>
@@ -185,6 +187,8 @@
 <p>Unwarp（畸变校正）：Unwarp方法是基于图像处理的技术，通过图像重采样和插值来校正图像畸变。它依赖于相邻时间点的fMRI图像信息。Unwarp方法通常需要额外的参考数据（例如，额外的fMRI序列）来估计磁场畸变的模型。</p>
 <p>Field Map（场图法）：Field map方法是基于磁场测量的技术，通过测量磁场变化来估计和校正磁场畸变。它依赖于额外的磁场映射扫描数据。</p>
 </blockquote>
+<br>
+<hr>
 <h2 id="coregistration">Coregistration</h2>
 <p>将T1登陆到EPI(变换、计算处理)
 有三种变换方式:Affine(平移+旋转的刚体变换),Stretching(保持一个方向不变移动其他方向),Shearing(扩大+缩小变形)</p>
@@ -217,11 +221,33 @@
 <p><code>FWHM</code>: FWHM参数定义了高斯滤波器的半高全宽（mm），用于指定 fMRI 图像的平滑程度。较小的FWHM值表示较小的滤波器，产生较少的平滑效果；较大的FWHM值表示较大的滤波器，产生更显著的平滑效果。较小的FWHM值适用于高分辨率数据和对细节较敏感的分析，但可能会保留更多的噪声。较大的FWHM值适用于低分辨率数据和对噪声较不敏感的分析，但可能会损失一些图像细节。i.e.,[7,7]</p>
 </li>
 </ul>
+<br>
+<hr>
 <h2 id="segmentation">Segmentation</h2>
-<p>将T1分解为标准脑6要素,分割后称为TPM</p>
+<p>将T1分解为标准脑6要素,分割后称为 TPM</p>
+<p>相关的参数：</p>
+<blockquote>
+<p>Channel: 指每个体素（Voxel）在fMRI数据中的观测通道数。通常为1，表示每个体素只有一个观测通道（T1）。</p>
+<ul>
+<li>
+<p>Volumes: 从已经选择的channel中选择scan。（这里就选择T1 images）</p>
+</li>
+<li>
+<p>Bias regularisation: 用于对磁共振图像中的偏差进行正则化的参数。偏差通常是由磁场非均匀性或硬件特性引起的亮度变化。通过启用偏差正则化，可以减少这些偏差的影响，提高图像质量。
+MR扫描中的intensity variation可能由两种可能引起：MR扫描物理原理引起的偏差伪影（bias artifact），或者不同组织的特性。（light regularisation: 0.001）</p>
+</li>
+<li>
+<p>Bias FWHM:</p>
+</li>
+</ul>
+</blockquote>
+<br>
+<hr>
 <h2 id="normalisation">Normalisation</h2>
-<p><strong>EPI标准化</strong> 标准话</p>
+<p><strong>EPI标准化</strong></p>
 <p>为了把 Coregistration 过后的图像和 MNI 标准脑 TPM 重合而进行计算</p>
+<br>
+<hr>
 <h2 id="smoothing">Smoothing</h2>
 <p><strong>EPI空间平滑化</strong></p>
 <p>通过应用高斯滤波器，对fMRI图像进行空间平滑处理。平滑处理有助于减少噪声和局部变异，提高信号与噪声的比值，并提升数据的统计可靠性。</p>
@@ -229,6 +255,8 @@
 <p>半值全幅(FWHM),指从 peak 开始高度一半地方的宽度.
 FWHM的值一般是voxel的2-3倍,不过在评价杏仁核这样的小结构时,也用1.5倍这样的小数值.
 FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像和平均的相邻voxel相关度变高).</p>
+<br>
+<hr>
 <h2 id="reference">Reference</h2>
 <p><a href="https://www.fil.ion.ucl.ac.uk/spm/doc/manual.pdf#Chap:FieldMap" target="_blank">SPM12 Manual</a></p>
 <p><a href="https://usermanual.wiki/Document/SPM1220E5889DE5ADA6E88085E68C87E58D9720SPM1220starters20guide.1138082217.pdf" target="_blank">SPM 中文初学者指南</a></p>
