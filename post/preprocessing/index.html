@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<meta name="generator" content="Hugo 0.113.0">
+<meta name="generator" content="Hugo 0.114.1">
 
 
 
@@ -92,7 +92,7 @@
         <div class="col-12 header">
             <a class="title-main" href="https://blushbot.ppfarm.boats">健康第一!</a>
             
-            <span class="title-sub">努力早睡早起</span>
+            <span class="title-sub">为八小时优质睡眠努力中</span>
             
         </div>
     </div>
@@ -111,7 +111,7 @@
     <div class="post-item post-meta">
         <span><i class="iconfont icon-today-sharp"></i>&nbsp;2023-06-20</span>
 
-<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;2161 words</span>
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;2965 words</span>
 
 <span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">SPM12学习笔记</a>&nbsp;</span>
 
@@ -199,6 +199,24 @@
 <p>Estimate &amp; Reslice：estimate &amp; reslice 是将上述两个步骤合并为一个步骤的选项。<strong>一次性</strong>完成 estimate 和 reslice。</p>
 </li>
 </ul>
+<p>一些我用到的参数：</p>
+<p><code>Reference Image</code>: 其他图像配准时的对照. Batch 操作时一般选择 Realign: Estimate &amp; Resllice: Mean image，即上一步Realign过后生成的 Mean image。（我的分析中跳过了Realignment，直接用了 T1 ）</p>
+<p><code>Source Image</code>: 应基于参比图像进行处理的图像。我的分析中使用了EPI（f 开头）</p>
+<p><code>Estimation options</code> 中的参数：</p>
+<ul>
+<li>
+<p><code>Cost Function</code>: Coregistration 涉及到最大化或最小化目标函数的参数（更好的Coregistation）常用的目标函数有：Mutual Information（mi），Normalized Mutual Information（nmi），Sum of Squared Differences（ssd），Correlation Ratio（corr_ratio）. （我的分析用了mni）</p>
+</li>
+<li>
+<p><code>Separation</code>: The average distance between sampled points (mm). 也就是源图像和参考图像之间的初始平移和旋转变换的初始步长。较大的Separation值适用于粗略的初始对齐，较小的Separation值适用于较精细的初始对齐。可以是一个vector，允许粗略的coregistration过后进行精细的coregsitration。i.e.,[4,2]</p>
+</li>
+<li>
+<p><code>Tolerances</code>: 指控制配准算法的终止条件。这些参数指定了在搜索对齐参数空间时用于终止搜索的阈值或容差值。包括Translation Tolerances（平移容差）, Rotation Tolerances（旋转容差）, Scale Tolerances（缩放容差）, Affine Tolerances（仿射容差）. 通常情况下，建议开始时使用较大的容差值进行初始对齐，然后逐渐减小容差值以提高对齐的精度。</p>
+</li>
+<li>
+<p><code>FWHM</code>: FWHM参数定义了高斯滤波器的半高全宽（mm），用于指定 fMRI 图像的平滑程度。较小的FWHM值表示较小的滤波器，产生较少的平滑效果；较大的FWHM值表示较大的滤波器，产生更显著的平滑效果。较小的FWHM值适用于高分辨率数据和对细节较敏感的分析，但可能会保留更多的噪声。较大的FWHM值适用于低分辨率数据和对噪声较不敏感的分析，但可能会损失一些图像细节。i.e.,[7,7]</p>
+</li>
+</ul>
 <h2 id="segmentation">Segmentation</h2>
 <p>将T1分解为标准脑6要素,分割后称为TPM</p>
 <h2 id="normalisation">Normalisation</h2>
@@ -214,6 +232,7 @@ FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像
 <h2 id="reference">Reference</h2>
 <p><a href="https://www.fil.ion.ucl.ac.uk/spm/doc/manual.pdf#Chap:FieldMap" target="_blank">SPM12 Manual</a></p>
 <p><a href="https://usermanual.wiki/Document/SPM1220E5889DE5ADA6E88085E68C87E58D9720SPM1220starters20guide.1138082217.pdf" target="_blank">SPM 中文初学者指南</a></p>
+<p><a href="https://blog.csdn.net/Iris_bysshqx17/article/details/100188483" target="_blank">暂时存一下</a></p>
     </div>
 </article>
 
