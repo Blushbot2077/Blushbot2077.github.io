@@ -113,7 +113,7 @@
     <div class="post-item post-meta">
         <span><i class="iconfont icon-today-sharp"></i>&nbsp;2023-06-20</span>
 
-<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;3412 words</span>
+<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;3536 words</span>
 
 <span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">SPM12学习笔记</a>&nbsp;</span>
 
@@ -248,6 +248,7 @@ MR扫描中的intensity variation可能由两种可能引起：MR扫描物理原
 <ul>
 <li><code>Tissue probability map</code>:</li>
 </ul>
+<p>Segmentation生成文件在T1文件夹里，c1+T1文件名.nii</p>
 <br>
 <hr>
 <h2 id="normalisation">Normalisation</h2>
@@ -262,6 +263,59 @@ MR扫描中的intensity variation可能由两种可能引起：MR扫描物理原
 <p>半值全幅(FWHM),指从 peak 开始高度一半地方的宽度.
 FWHM的值一般是voxel的2-3倍,不过在评价杏仁核这样的小结构时,也用1.5倍这样的小数值.
 FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像和平均的相邻voxel相关度变高).</p>
+<hr>
+<br>
+<h2 id="我自己用到的顺序">我自己用到的顺序：</h2>
+<p>Day1:</p>
+<ol>
+<li>
+<p>Convert DICOM to NIfTI</p>
+</li>
+<li>
+<p>Coregister EPI to T1 (by BatchCoreg.m)</p>
+</li>
+<li>
+<p>Fieldmap process (by BatchCalVDM.m)</p>
+</li>
+<li>
+<p>Coregister fieldmap-corrected EPI to T1</p>
+</li>
+<li>
+<p>Segmentation（x）</p>
+</li>
+<li>
+<p>Smooth　555</p>
+</li>
+</ol>
+<p>Day2</p>
+<ol>
+<li>
+<p>Convert DICOM to NIfTI</p>
+</li>
+<li>
+<p>Coregister EPI to T1 (by BatchCoreg.m)</p>
+</li>
+<li>
+<p>Fieldmap process (by BatchCalVDM.m)</p>
+</li>
+<li>
+<p>Coregister fieldmap-corrected EPI to T1</p>
+</li>
+<li>
+<p>Segmentation</p>
+</li>
+<li>
+<p>Normalisation</p>
+</li>
+<li>
+<p>Smooth</p>
+</li>
+</ol>
+<p>Normalisation　is used to compare d1 and d2 data.</p>
+<p>Model construction</p>
+<p>Estimation</p>
+<p>construct contrasts</p>
+<p>average among subjects (only D2)hugo</p>
 <br>
 <hr>
 <h2 id="reference">Reference</h2>
@@ -352,6 +406,7 @@ FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像
     <li><a href="#segmentation">Segmentation</a></li>
     <li><a href="#normalisation">Normalisation</a></li>
     <li><a href="#smoothing">Smoothing</a></li>
+    <li><a href="#我自己用到的顺序">我自己用到的顺序：</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
@@ -444,6 +499,7 @@ FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像
     <li><a href="#segmentation">Segmentation</a></li>
     <li><a href="#normalisation">Normalisation</a></li>
     <li><a href="#smoothing">Smoothing</a></li>
+    <li><a href="#我自己用到的顺序">我自己用到的顺序：</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav>
