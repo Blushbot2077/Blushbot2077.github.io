@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Specify the stats">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Stats in SPM12" />
+<meta property="og:description" content="Specify the stats" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blushbot.ppfarm.boats/posts/Stats-in-SPM12/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-07T00:00:00+00:00" />
+<title>Stats in SPM12 | Hugo Book</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="stylesheet" href="/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css" integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz&#43;OQteg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.4ead31657024090c45554d23addc33b4a907c8401f2f641f3fda581bbd4e8ef6.js" integrity="sha256-Tq0xZXAkCQxFVU0jrdwztKkHyEAfL2QfP9pYG71OjvY=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Hugo Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/example/" class="">Example Site</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4e46b01272d410b3a99461d79326ddf4" class="toggle"  />
+    <label for="section-4e46b01272d410b3a99461d79326ddf4" class="flex justify-between">
+      <a role="button" class="">Collapsed</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/collapsed/3rd-level/" class="">3rd Level</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/collapsed/3rd-level/4th-level/" class="">4th Level</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Shortcodes</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3fc1bf6d66cd84b896a0af9f40cb1d5" class="toggle"  />
+    <label for="section-d3fc1bf6d66cd84b896a0af9f40cb1d5" class="flex justify-between">
+      <a href="/docs/shortcodes/section/" class="">Section</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/section/first-page/" class="">First Page</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/section/second-page/" class="">Second Page</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/alex-shpak/hugo-book"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Stats in SPM12</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#sepecify-1st-level-model-to-images">Sepecify 1st level Model (to images)</a></li>
+        <li><a href="#estimate-stats-model">Estimate stats Model</a></li>
+        <li><a href="#contrast-manager-introduction">Contrast Manager Introduction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/Stats-in-SPM12/">Stats in SPM12</a>
+  </h1>
+  
+  <h5>September 7, 2023</h5>
+
+
+
+  
+
+  
+  <div>
+    
+      <a href="/tags/SPM12-statistical-analysis/">SPM12 statistical analysis</a>
+  </div>
+  
+
+
+
+<p>Specify the stats</p>
+<h2 id="sepecify-1st-level-model-to-images">
+  Sepecify 1st level Model (to images)
+  <a class="anchor" href="#sepecify-1st-level-model-to-images">#</a>
+</h2>
+<p><code>Directory</code>：SPM.mat file containing the specified design matrix will be written. (写入结果的地方)
+（Individual-level 可以放在单个subject的子文件夹内；group-level 可以放在与subject并列的文件夹内）</p>
+<p>Time parameters:</p>
+<ul>
+<li>
+<p><code>Units for design</code>: Scans or seconds, 根据实验需要（我的实验使用seconds）</p>
+</li>
+<li>
+<p><code>Interscan interval</code>: TR</p>
+</li>
+<li>
+<p><code>Microtime resolution</code>: Ignored</p>
+</li>
+<li>
+<p><code>Microtime onset</code>: Ignored</p>
+</li>
+</ul>
+<p>Data &amp; Design:</p>
+<ul>
+<li>
+<p><code>Subjects/Session</code>: Day1 和 Day2 各有一个条件</p>
+</li>
+<li>
+<p><code>Multiple conditions</code>: You will need to create a *.mat file containing the relevant information. This .mat file must include the following cell arrays: <strong>names, onsets and durations</strong> eg. names{2}=’SSent-DSpeak’,onsets{2}=[3 5 19 222], durations{2}=[0 0 0 0] contain the required details of the second condition. These cell arrays may be made available by your stimulus delivery program eg. CO-
+GENT. The duration vectors can contain a single entry if the durations are identical for all
+events.</p>
+</li>
+<li>
+<p><code>High-pass filter</code>: 最长的两个相同的刺激之间的时间的两倍 （设立一个跨越很长时间的regressor）</p>
+</li>
+</ul>
+<p>Time domain regressor中：ß 是高度</p>
+<h2 id="estimate-stats-model">
+  Estimate stats Model
+  <a class="anchor" href="#estimate-stats-model">#</a>
+</h2>
+<p>之前产生的文件：</p>
+<p><strong>beta_000*.nii</strong>: beta images that betas best fit the regressors. 数量和所有regressor的数量相同（包括constant）
+The size of the best fit</p>
+<p><strong>mask.nii</strong>: parts of the image that were actually included in the analysis.</p>
+<h2 id="contrast-manager-introduction">
+  Contrast Manager Introduction
+  <a class="anchor" href="#contrast-manager-introduction">#</a>
+</h2>
+<p>点击 <code>Result</code> ➡️ Navigate <code>SPM.mat</code> ➡️ 打开 <code>SPM Contrast Manager</code> 窗口</p>
+<p>Define a new contrast: <code>t-contrast</code> （subtracting one set of betas from another</p>
+<p>Input <code>Name</code>, <code>Type</code>, <code>Contrast</code>:</p>
+<p>当一个contrast制作完成，点击Done：</p>
+<p><code>Apply Masking</code>：mask off 不感兴趣的区域</p>
+<ul>
+<li><code>None</code>： 没有mask off，whole brain analysis</li>
+<li><code>Contrast</code>: 用一个新 contrast 来 mask off</li>
+<li><code>Images</code>, <code>Altas</code></li>
+</ul>
+<p><code>p value adjustment to control</code>:</p>
+<ul>
+<li><code>FWE</code>: 进行校正的原因有两个：脑中的各个voxel是相互关联的，不是独立的；尽管p&lt;0.05是一个比较小的值，但是检验每个voxel需要成千上万次t-test，因此用FWE进行校正</li>
+</ul>
+<p><code>Extend threshold</code>: 只选择那些处于 large clusters of significant voxels 的 voxels。（e.g.如果设为10，就只选择附近至少10个 voxels 都 significant 的voxel）.
+（0代表显示全部significant voxel）。</p>
+<p>Glass brain view：</p></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#sepecify-1st-level-model-to-images">Sepecify 1st level Model (to images)</a></li>
+        <li><a href="#estimate-stats-model">Estimate stats Model</a></li>
+        <li><a href="#contrast-manager-introduction">Contrast Manager Introduction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Hugo Book</title>
+    <link>https://blushbot.ppfarm.boats/tags/</link>
+    <description>Recent content in Tags on Hugo Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 19 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blushbot.ppfarm.boats/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Note of cognitive neuroscience</title>
+      <link>https://blushbot.ppfarm.boats/tags/Note-of-cognitive-neuroscience/</link>
+      <pubDate>Thu, 19 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/tags/Note-of-cognitive-neuroscience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SPM12 statistical analysis</title>
+      <link>https://blushbot.ppfarm.boats/tags/SPM12-statistical-analysis/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/tags/SPM12-statistical-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SPM12学习笔记</title>
+      <link>https://blushbot.ppfarm.boats/tags/SPM12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 20 Jun 2023 16:21:37 +0900</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/tags/SPM12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>development</title>
+      <link>https://blushbot.ppfarm.boats/tags/development/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://blushbot.ppfarm.boats/tags/go/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://blushbot.ppfarm.boats/tags/golang/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://blushbot.ppfarm.boats/tags/hugo/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>templates</title>
+      <link>https://blushbot.ppfarm.boats/tags/templates/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/tags/templates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://blushbot.ppfarm.boats/tags/themes/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/tags/themes/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SPM12 statistical analysis on Hugo Book</title>
+    <link>https://blushbot.ppfarm.boats/tags/SPM12-statistical-analysis/</link>
+    <description>Recent content in SPM12 statistical analysis on Hugo Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blushbot.ppfarm.boats/tags/SPM12-statistical-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stats in SPM12</title>
+      <link>https://blushbot.ppfarm.boats/posts/Stats-in-SPM12/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blushbot.ppfarm.boats/posts/Stats-in-SPM12/</guid>
+      <description>&lt;p&gt;Specify the stats&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

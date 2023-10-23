@@ -1,148 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="ltr">
 <head>
-    
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="HandheldFriendly" content="True" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<meta name="generator" content="Hugo 0.114.1">
-
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-
-
-
-
-<title>fMRI脑成像预处理(SPM12 Preprocessing) - 健康第一!</title>
-
-
-<meta name="author" content="Blushbot" />
-
-
-<meta name="description" content="为八小时优质睡眠努力中" />
-
-
-<meta name="keywords" content="SPM12学习笔记" />
-
-
-<meta property="og:title" content="fMRI脑成像预处理(SPM12 Preprocessing)" />
-<meta name="twitter:title" content="fMRI脑成像预处理(SPM12 Preprocessing)" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert, FieldMap , 以及Preproceesing">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="fMRI脑成像预处理(SPM12 Preprocessing)" />
+<meta property="og:description" content="Convert, FieldMap , 以及Preproceesing" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blushbot.ppfarm.boats/post/preprocessing/" /><meta property="og:description" content="Convert, FieldMap , 以及Preproceesing" />
-<meta name="twitter:description" content="Convert, FieldMap , 以及Preproceesing" /><meta property="og:image" content="https://blushbot.ppfarm.boats/apple-touch-icon.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://blushbot.ppfarm.boats/apple-touch-icon.png" /><meta property="article:published_time" content="2023-06-20T16:21:37+09:00" /><meta property="article:modified_time" content="2023-06-20T16:21:37+09:00" />
-
-
-<style>
-    @media (prefers-color-scheme: dark) {
-        body[data-theme='auto'] img {
-            filter: brightness(60%);
-        }
-    }
-
-    body[data-theme='dark'] img {
-        filter: brightness(60%);
-    }
-</style>
-
-
-
-
-<link rel="stylesheet" href="https://blushbot.ppfarm.boats/assets/css/fuji.min.b4a21b5d3eb1d0a51297e31230a65fc25e387843e45ec3a2d9176cd8d163c216d99b9b13a618b28f537c3b559ec8a408183b0fbfad48daddb9befa7d3ef90eed.css" integrity="sha512-tKIbXT6x0KUSl&#43;MSMKZfwl44eEPkXsOi2Rds2NFjwhbZm5sTphiyj1N8O1WeyKQIGDsPv61I2t25vvp9PvkO7Q==" />
-
-
-
-
-
-
-
-
+<meta property="og:url" content="https://blushbot.ppfarm.boats/post/preprocessing/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-20T16:21:37+09:00" />
+<meta property="article:modified_time" content="2023-06-20T16:21:37+09:00" />
+<title>fMRI脑成像预处理(SPM12 Preprocessing) | 健康第一!</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="stylesheet" href="/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css" integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz&#43;OQteg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.3623596194bc6d2a00d12e863563cc9c98b6c3b6c6734ba7e5eca96235ba4f54.js" integrity="sha256-NiNZYZS8bSoA0S6GNWPMnJi2w7bGc0un5eypYjW6T1Q=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
 </head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>健康第一!</span>
+  </a>
+</h2>
 
-<body
-  data-theme="auto"
-  data-theme-auto='true'
-  >
-    <script data-cfasync="false">
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
   
-  var fujiThemeData = localStorage.getItem('fuji_data-theme');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>fMRI脑成像预处理(SPM12 Preprocessing)</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
   
-  if (!fujiThemeData) {
-    localStorage.setItem('fuji_data-theme', 'auto');
-  } else {
+  <aside class="hidden clearfix">
     
-    if (fujiThemeData !== 'auto') {
-      document.body.setAttribute('data-theme', fujiThemeData === 'dark' ? 'dark' : 'light');
-    }
-  }
-</script>
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#convert-dicom---nifti">Convert DICOM - NIfTI</a>
+      <ul>
+        <li><a href="#安装-mricroglhttpswwwnitrcorgprojectsmricrogl">安装 <a href="https://www.nitrc.org/projects/mricrogl">MRIcroGL</a></a></li>
+        <li><a href="#converting-the-dicom-files-using-mricrogl">Converting the DICOM Files using MRIcroGL</a></li>
+        <li><a href="#running-dicom-to-nifti-from-the-command-line">Running DICOM to NIFTI from the Command Line</a></li>
+      </ul>
+    </li>
+    <li><a href="#fieldmap-校正">FieldMap 校正</a></li>
+    <li><a href="#realignment">Realignment</a></li>
+    <li><a href="#coregistration">Coregistration</a></li>
+    <li><a href="#segmentation">Segmentation</a></li>
+    <li><a href="#normalisation">Normalisation</a></li>
+    <li><a href="#smoothing">Smoothing</a></li>
+    <li><a href="#我自己用到的顺序">我自己用到的顺序</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
 
-    <header>
-    <div class="container-lg clearfix">
-        <div class="col-12 header">
-            <a class="title-main" href="https://blushbot.ppfarm.boats">健康第一!</a>
-            
-            <span class="title-sub">为八小时优质睡眠努力中</span>
-            
-        </div>
-    </div>
-</header>
 
-    <main>
-        <div class="container-lg clearfix">
-            
-            <div class="col-12 col-md-9 float-left content">
-                
-<article>
-    
-    <h2 class="post-item post-title">
-        <a href="https://blushbot.ppfarm.boats/post/preprocessing/">fMRI脑成像预处理(SPM12 Preprocessing)</a>
-    </h2>
-    <div class="post-item post-meta">
-        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2023-06-20</span>
 
-<span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;3536 words</span>
+  </aside>
+  
+ 
+      </header>
 
-<span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">SPM12学习笔记</a>&nbsp;</span>
-
-    </div>
-    
-    <div class="post-content markdown-body">
-        <p>Convert, FieldMap , 以及Preproceesing</p>
-<h2 id="convert-dicom---nifti">Convert DICOM - NIfTI</h2>
+      
+      
+  <article class="markdown"><p>Convert, FieldMap , 以及Preproceesing</p>
+<h2 id="convert-dicom---nifti">
+  Convert DICOM - NIfTI
+  <a class="anchor" href="#convert-dicom---nifti">#</a>
+</h2>
 <p>两种方法: SPM12 DICOM import 和 MRIcroGL(dcm2niix)</p>
 <p>直接使用 SPM12 转换非常简单，但缺点是无法看到 DICOM 文件的原始数据（比如TR，TE），可能会对 Fieldmap 校正选择参数带来一些困难。而使用 MRIcroGL 则可以额外生成保留原数据的 json 文件。因此这里主要说明 MRIcroGL 的操作方法。</p>
 <p>MRIcroGL is also used for visualizing imaging data, especially group-level results. 但目前只用来转换成 NIfTI 文件.</p>
-<p>以下内容参考了<a href="https://andysbrainbook.readthedocs.io/en/latest/MRIcroGL/MRIcroGL_Overview.html" target="_blank">Andysbrainbook</a>.</p>
-<h3 id="安装-mricroglhttpswwwnitrcorgprojectsmricrogl">安装 <a href="https://www.nitrc.org/projects/mricrogl" target="_blank">MRIcroGL</a></h3>
+<p>以下内容参考了<a href="https://andysbrainbook.readthedocs.io/en/latest/MRIcroGL/MRIcroGL_Overview.html">Andysbrainbook</a>.</p>
+<h3 id="安装-mricroglhttpswwwnitrcorgprojectsmricrogl">
+  安装 <a href="https://www.nitrc.org/projects/mricrogl">MRIcroGL</a>
+  <a class="anchor" href="#%e5%ae%89%e8%a3%85-mricroglhttpswwwnitrcorgprojectsmricrogl">#</a>
+</h3>
 <p>安装后进入软件,菜单栏选中<code>import</code>-&gt;<code>Convert DICOM to NIfTI</code>,会看到如下界面:</p>
-<p>
-    <img src="/img/DICOMtoNIFTI_GUI.png" alt="MRIcroGL GUI" />
-  </p>
+<p><img src="/img/DICOMtoNIFTI_GUI.png" alt="这是图片" title="MRIcroGL GUI"/></p>
 <p><code>Output Filename</code>：默认是格式化运算符<code>%f_%p_%t_%s</code>,鼠标停留在名称上会有每个变量的具体说明,可以根据需要修改转换后输出的名称。</p>
 <p><code>Output Derictiory</code>：输出路径，默认与DICOM文件在同一个文件夹。</p>
 <p><code>Output Format</code>：输出格式，默认是compressed NIfTI. 但请注意,SPM无法打开压缩的文件（AFNI和FSL都可以打开），建议手动选择<strong>uncompressed NIFTI</strong>。</p>
 <p><code>Create BIDS Sidecar</code>：该选项会创建一个包含原DICOM数据的Javascript Object Notation (.json)文件，包括slice-timing, slice order, the repetition time, echo time 等等。其中，Echo time 是 Fieldmap 时很重要的一个参数。</p>
-<h3 id="converting-the-dicom-files-using-mricrogl">Converting the DICOM Files using MRIcroGL</h3>
+<h3 id="converting-the-dicom-files-using-mricrogl">
+  Converting the DICOM Files using MRIcroGL
+  <a class="anchor" href="#converting-the-dicom-files-using-mricrogl">#</a>
+</h3>
 <p>可以通过鼠标拖拽或者<code>Select Folder to Convert</code> 按钮选择想要转换的DICOM文件夹，右侧窗口会显示转换完成。</p>
-<p>
-    <img src="/img/02_ConvertedFiles.png" alt="MRIcroGL GUI" />
-  </p>
-<h3 id="running-dicom-to-nifti-from-the-command-line">Running DICOM to NIFTI from the Command Line</h3>
+<p><img src="/img/02_ConvertedFiles.png" alt="这是图片" title="MRIcroGL GUI"/></p>
+<h3 id="running-dicom-to-nifti-from-the-command-line">
+  Running DICOM to NIFTI from the Command Line
+  <a class="anchor" href="#running-dicom-to-nifti-from-the-command-line">#</a>
+</h3>
 <p>（还没使用过）</p>
-<h2 id="fieldmap-校正">FieldMap 校正</h2>
+<h2 id="fieldmap-校正">
+  FieldMap 校正
+  <a class="anchor" href="#fieldmap-%e6%a0%a1%e6%ad%a3">#</a>
+</h2>
 <p>FieldMap 校正是指，对成像进行动态或静态的畸变校正。</p>
 <p>SPM12 中使用 Fieldmap toolbox 进行 Fieldmap 校正。</p>
 <p>两个步骤：</p>
@@ -178,9 +204,12 @@
 <p>P.S. 所有过程都可以以 batch code 方式批量操作。</p>
 <p>校正后的EPI文件的前缀是<strong>wu</strong>，表示&quot;warped and unwarped&quot;。</p>
 <p>校正后的EPI文件保存在与输入EPI图像相同的路径下。</p>
-<br>
+<!-- <br> -->
 <hr>
-<h2 id="realignment">Realignment</h2>
+<h2 id="realignment">
+  Realignment
+  <a class="anchor" href="#realignment">#</a>
+</h2>
 <p>运动校正，修正EPI的位移</p>
 <p>Realign &amp; Unwarp（运动校正和磁场畸变校正）</p>
 <blockquote>
@@ -189,9 +218,12 @@
 <p>Unwarp（畸变校正）：Unwarp方法是基于图像处理的技术，通过图像重采样和插值来校正图像畸变。它依赖于相邻时间点的fMRI图像信息。Unwarp方法通常需要额外的参考数据（例如，额外的fMRI序列）来估计磁场畸变的模型。</p>
 <p>Field Map（场图法）：Field map方法是基于磁场测量的技术，通过测量磁场变化来估计和校正磁场畸变。它依赖于额外的磁场映射扫描数据。</p>
 </blockquote>
-<br>
+<!-- <br> -->
 <hr>
-<h2 id="coregistration">Coregistration</h2>
+<h2 id="coregistration">
+  Coregistration
+  <a class="anchor" href="#coregistration">#</a>
+</h2>
 <p>将T1登陆到EPI(变换、计算处理)
 有三种变换方式:Affine(平移+旋转的刚体变换),Stretching(保持一个方向不变移动其他方向),Shearing(扩大+缩小变形)</p>
 <ul>
@@ -223,9 +255,12 @@
 <p><code>FWHM</code>: FWHM参数定义了高斯滤波器的半高全宽（mm），用于指定 fMRI 图像的平滑程度。较小的FWHM值表示较小的滤波器，产生较少的平滑效果；较大的FWHM值表示较大的滤波器，产生更显著的平滑效果。较小的FWHM值适用于高分辨率数据和对细节较敏感的分析，但可能会保留更多的噪声。较大的FWHM值适用于低分辨率数据和对噪声较不敏感的分析，但可能会损失一些图像细节。i.e.,[7,7]</p>
 </li>
 </ul>
-<br>
+<!-- <br> -->
 <hr>
-<h2 id="segmentation">Segmentation</h2>
+<h2 id="segmentation">
+  Segmentation
+  <a class="anchor" href="#segmentation">#</a>
+</h2>
 <p>将T1分解为标准脑6要素,分割后称为 TPM</p>
 <p>相关的参数：</p>
 <p><code>Channel</code>: 指每个体素（Voxel）在fMRI数据中的观测通道数。通常为1，表示每个体素只有一个观测通道（T1）。</p>
@@ -251,12 +286,18 @@ MR扫描中的intensity variation可能由两种可能引起：MR扫描物理原
 <p>Segmentation生成文件在T1文件夹里，c1+T1文件名.nii</p>
 <br>
 <hr>
-<h2 id="normalisation">Normalisation</h2>
+<h2 id="normalisation">
+  Normalisation
+  <a class="anchor" href="#normalisation">#</a>
+</h2>
 <p><strong>EPI标准化</strong></p>
 <p>为了把 Coregistration 过后的图像和 MNI 标准脑 TPM 重合而进行计算</p>
 <br>
 <hr>
-<h2 id="smoothing">Smoothing</h2>
+<h2 id="smoothing">
+  Smoothing
+  <a class="anchor" href="#smoothing">#</a>
+</h2>
 <p><strong>EPI空间平滑化</strong></p>
 <p>通过应用高斯滤波器，对fMRI图像进行空间平滑处理。平滑处理有助于减少噪声和局部变异，提高信号与噪声的比值，并提升数据的统计可靠性。</p>
 <p>空间上<strong>幅</strong>的表示方法:半值全幅(FWHM,Full Width at Half Maximum)</p>
@@ -264,8 +305,11 @@ MR扫描中的intensity variation可能由两种可能引起：MR扫描物理原
 FWHM的值一般是voxel的2-3倍,不过在评价杏仁核这样的小结构时,也用1.5倍这样的小数值.
 FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像和平均的相邻voxel相关度变高).</p>
 <hr>
-<br>
-<h2 id="我自己用到的顺序">我自己用到的顺序：</h2>
+<!-- <br> -->
+<h2 id="我自己用到的顺序">
+  我自己用到的顺序
+  <a class="anchor" href="#%e6%88%91%e8%87%aa%e5%b7%b1%e7%94%a8%e5%88%b0%e7%9a%84%e9%a1%ba%e5%ba%8f">#</a>
+</h2>
 <p>Day1:</p>
 <ol>
 <li>
@@ -315,83 +359,55 @@ FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像
 <p>Model construction</p>
 <p>Estimation</p>
 <p>construct contrasts</p>
-<p>average among subjects (only D2)hugo</p>
+<p>average among subjects (only D2)</p>
 <br>
 <hr>
-<h2 id="reference">Reference</h2>
-<p><a href="https://www.fil.ion.ucl.ac.uk/spm/doc/manual.pdf#Chap:FieldMap" target="_blank">SPM12 Manual</a></p>
-<p><a href="https://usermanual.wiki/Document/SPM1220E5889DE5ADA6E88085E68C87E58D9720SPM1220starters20guide.1138082217.pdf" target="_blank">SPM 中文初学者指南</a></p>
-<p><a href="https://blog.csdn.net/Iris_bysshqx17/article/details/100188483" target="_blank">暂时存一下</a></p>
-    </div>
-</article>
+<h2 id="reference">
+  Reference
+  <a class="anchor" href="#reference">#</a>
+</h2>
+<p><a href="https://www.fil.ion.ucl.ac.uk/spm/doc/manual.pdf#Chap:FieldMap">SPM12 Manual</a></p>
+<p><a href="https://usermanual.wiki/Document/SPM1220E5889DE5ADA6E88085E68C87E58D9720SPM1220starters20guide.1138082217.pdf">SPM 中文初学者指南</a></p>
+<p><a href="https://blog.csdn.net/Iris_bysshqx17/article/details/100188483">暂时存一下</a></p></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
 
-<div class="license markdown-body">
-    <blockquote>
-        <p>Unless otherwise noted, the content of this site is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-               target="_blank">CC BY-NC-SA 4.0</a>.</p>
-    </blockquote>
+
+
+
 </div>
 
 
 
-            </div>
-            <aside class="col-12 col-md-3 float-left sidebar">
-    
-    <div class="sidebar-item sidebar-pages">
-        <h3>Pages</h3>
-        <ul>
-            
-            <li>
-                <a href="/">Home</a>
-            </li>
-            
-            <li>
-                <a href="/archives/">Archives</a>
-            </li>
-            
-            <li>
-                <a href="/about/">About</a>
-            </li>
-            
-            <li>
-                <a href="/search/">Search</a>
-            </li>
-            
-            <li>
-                <a href="/index.xml">RSS</a>
-            </li>
-            
-        </ul>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
+
     
-    <div class="sidebar-item sidebar-links">
-        <h3>Links</h3>
-        <ul>
-            
-            <li>
-                <a href="mailto:viennchou@gmail.com" target="_blank"><span>E-mail</span></a>
-            </li>
-            
-        </ul>
-    </div>
-    
-    <div class="sidebar-item sidebar-tags">
-        <h3>Tags</h3>
-        <div>
-            
-            <span>
-                <a href="/tags/neuroscience/">Neuroscience</a>
-            </span>
-            
-            <span>
-                <a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SPM12学习笔记</a>
-            </span>
-            
-        </div>
-    </div>
-    <div class="sidebar-item sidebar-toc">
-        <h3>Table of Contents</h3><nav id="TableOfContents">
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
   <ul>
     <li><a href="#convert-dicom---nifti">Convert DICOM - NIfTI</a>
       <ul>
@@ -406,137 +422,30 @@ FWHM越大,整体的功能画像就会越模糊(因为FWHM越大,意味着图像
     <li><a href="#segmentation">Segmentation</a></li>
     <li><a href="#normalisation">Normalisation</a></li>
     <li><a href="#smoothing">Smoothing</a></li>
-    <li><a href="#我自己用到的顺序">我自己用到的顺序：</a></li>
-    <li><a href="#reference">Reference</a></li>
-  </ul>
-</nav></div>
-</aside>
-
-        </div>
-        <div class="btn">
-    <div class="btn-menu" id="btn-menu">
-        <i class="iconfont icon-grid-sharp"></i>
-    </div>
-    <div class="btn-toggle-mode">
-        <i class="iconfont icon-contrast-sharp"></i>
-    </div>
-    <div class="btn-scroll-top">
-        <i class="iconfont icon-chevron-up-circle-sharp"></i>
-    </div>
-</div>
-<aside class="sidebar-mobile" style="display: none;">
-  <div class="sidebar-wrapper">
-    
-    <div class="sidebar-item sidebar-pages">
-        <h3>Pages</h3>
-        <ul>
-            
-            <li>
-                <a href="/">Home</a>
-            </li>
-            
-            <li>
-                <a href="/archives/">Archives</a>
-            </li>
-            
-            <li>
-                <a href="/about/">About</a>
-            </li>
-            
-            <li>
-                <a href="/search/">Search</a>
-            </li>
-            
-            <li>
-                <a href="/index.xml">RSS</a>
-            </li>
-            
-        </ul>
-    </div>
-    
-    <div class="sidebar-item sidebar-links">
-        <h3>Links</h3>
-        <ul>
-            
-            <li>
-                <a href="mailto:viennchou@gmail.com" target="_blank"><span>E-mail</span></a>
-            </li>
-            
-        </ul>
-    </div>
-    
-    <div class="sidebar-item sidebar-tags">
-        <h3>Tags</h3>
-        <div>
-            
-            <span>
-                <a href="/tags/neuroscience/">Neuroscience</a>
-            </span>
-            
-            <span>
-                <a href="/tags/spm12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SPM12学习笔记</a>
-            </span>
-            
-        </div>
-    </div>
-    
-    
-    
-    <div class="sidebar-item sidebar-toc">
-        <h3>Table of Contents</h3>
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#convert-dicom---nifti">Convert DICOM - NIfTI</a>
-      <ul>
-        <li><a href="#安装-mricroglhttpswwwnitrcorgprojectsmricrogl">安装 <a href="https://www.nitrc.org/projects/mricrogl">MRIcroGL</a></a></li>
-        <li><a href="#converting-the-dicom-files-using-mricrogl">Converting the DICOM Files using MRIcroGL</a></li>
-        <li><a href="#running-dicom-to-nifti-from-the-command-line">Running DICOM to NIFTI from the Command Line</a></li>
-      </ul>
-    </li>
-    <li><a href="#fieldmap-校正">FieldMap 校正</a></li>
-    <li><a href="#realignment">Realignment</a></li>
-    <li><a href="#coregistration">Coregistration</a></li>
-    <li><a href="#segmentation">Segmentation</a></li>
-    <li><a href="#normalisation">Normalisation</a></li>
-    <li><a href="#smoothing">Smoothing</a></li>
-    <li><a href="#我自己用到的顺序">我自己用到的顺序：</a></li>
+    <li><a href="#我自己用到的顺序">我自己用到的顺序</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav>
-    </div>
+
+
+ 
+      </div>
+    </aside>
     
-    
-  </div>
-</aside>
-    </main>
+  </main>
 
-    <footer>
-    <div class="container-lg clearfix">
-        <div class="col-12 footer">
-            
-            <span>&copy; 2023-2023
-                <a href="https://blushbot.ppfarm.boats">Blushbot</a>
-                
-                | Powered by <a href="https://github.com/dsrkafuu/hugo-theme-fuji/"
-                   target="_blank">Fuji-v2</a> &amp; <a href="https://gohugo.io/"
-                                                    target="_blank">Hugo</a> 
-            </span>
-        </div>
-    </div>
-</footer>
-
-    
-<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S+Yti0U7QtuZvQ==" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/components/prism-core.min.js" integrity="sha512-LCKPTo0gtJ74zCNMbWw04ltmujpzSR4oW+fgN+Y1YclhM5ZrHCZQAJE4quEodcI/G122sRhSGU2BsSRUZ2Gu3w==" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-GP4x8UWxWyh4BMbyJGOGneiTbkrWEF5izsVJByzVLodP8CuJH/n936+yQDMJJrOPUHLgyPbLiGw2rXmdvGdXHA==" crossorigin="anonymous"></script>
-
-
-
-<script defer src="/assets/js/fuji.min.645f1123be695831f419ab54c1bcba327325895c740014006e57070d4f3e5d6b553e929c4b46f40ea707249e9c7f7c2a446d32a39ce7319f80a34525586a8e0f.js" integrity="sha512-ZF8RI75pWDH0GatUwby6MnMliVx0ABQAblcHDU8&#43;XWtVPpKcS0b0DqcHJJ6cf3wqRG0yo5znMZ&#43;Ao0UlWGqODw=="></script>
-
-
-
+  
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
