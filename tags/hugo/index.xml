@@ -6,12 +6,12 @@
     <description>Recent content in hugo on Hugo Book</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blushbot.ppfarm.boats/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blushbot.ppfarm.boats/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started with Hugo</title>
       <link>https://blushbot.ppfarm.boats/posts/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo # Go to Hugo releases and download the appropriate version for your OS and architecture.
 Save it somewhere specific as we will be using it in the next step.
@@ -19,6 +19,5 @@ More complete instructions are available at Install Hugo
 Step 2. Build the Docs # Hugo has its own example site which happens to also be the documentation site you are reading right now.
 Follow the following steps:</description>
     </item>
-    
   </channel>
 </rss>

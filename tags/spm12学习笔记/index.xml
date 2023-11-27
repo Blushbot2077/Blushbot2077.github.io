@@ -6,15 +6,14 @@
     <description>Recent content in SPM12学习笔记 on Hugo Book</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Jun 2023 16:21:37 +0900</lastBuildDate><atom:link href="https://blushbot.ppfarm.boats/tags/SPM12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jun 2023 16:21:37 +0900</lastBuildDate>
+    <atom:link href="https://blushbot.ppfarm.boats/tags/SPM12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>fMRI brain image preprocessing(SPM12)</title>
       <link>https://blushbot.ppfarm.boats/posts/Preprocessing/</link>
       <pubDate>Tue, 20 Jun 2023 16:21:37 +0900</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/Preprocessing/</guid>
       <description>&lt;p&gt;Convert, FieldMap , 以及Preproceesing&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

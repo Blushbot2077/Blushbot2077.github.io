@@ -6,15 +6,38 @@
     <description>Recent content in SPM12 statistical analysis on Hugo Book</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blushbot.ppfarm.boats/tags/SPM12-statistical-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blushbot.ppfarm.boats/tags/SPM12-statistical-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell little note</title>
+      <link>https://blushbot.ppfarm.boats/posts/Shell%E7%9B%B8%E5%85%B3%E5%B0%8F%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://blushbot.ppfarm.boats/posts/Shell%E7%9B%B8%E5%85%B3%E5%B0%8F%E7%AC%94%E8%AE%B0/</guid>
+      <description>cat 可以读取并显示文件内容
+&amp;gt; angle bracket sign: 可以把X写入A；可以overwirte
+&amp;gt;&amp;gt; append，而不是overwrite
+&amp;lt; 从A中提取X
+| pipe character:
+sudo: &amp;ldquo;do as super user (root)&amp;rdquo;, 以root的身份执行以下命令
+sudo su: 更改为root身份 （exit退出root shell）
+/sys：并不是存在于电脑中实际的file，而是various kernal parameters $ : not running as root.
+# : running as root
+tee: 把input写入文件并把input显示出来
+grep: 搜索
+find
+xdg-open: 传递一个filename，他会以合适的program打开file
+Shell 能实现的作用：
+assign variables (记得$)
+source：用于在当前 Shell 会话中执行脚本文件的命令。它通常用于执行脚本文件，以便将脚本中定义的环境变量、函数或其他命令引入到当前 Shell 会话中，以供后续命令使用。
+$? :get you the error code from the previous command
+0 : everything goes well 1 : 失败状态码 $_ :get you the last argument from previous command</description>
+    </item>
     <item>
       <title>Stats in SPM12</title>
       <link>https://blushbot.ppfarm.boats/posts/Stats-in-SPM12/</link>
       <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/Stats-in-SPM12/</guid>
       <description>&lt;p&gt;Specify the stats&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

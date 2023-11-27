@@ -6,70 +6,82 @@
     <description>Recent content in Blog on Hugo Book</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 19 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blushbot.ppfarm.boats/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blushbot.ppfarm.boats/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emotion related neuroscience</title>
       <link>https://blushbot.ppfarm.boats/posts/CognitiveNeural/</link>
       <pubDate>Thu, 19 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/CognitiveNeural/</guid>
       <description>&lt;p&gt;Amygdala&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>Shell little note</title>
+      <link>https://blushbot.ppfarm.boats/posts/Shell%E7%9B%B8%E5%85%B3%E5%B0%8F%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://blushbot.ppfarm.boats/posts/Shell%E7%9B%B8%E5%85%B3%E5%B0%8F%E7%AC%94%E8%AE%B0/</guid>
+      <description>cat 可以读取并显示文件内容
+&amp;gt; angle bracket sign: 可以把X写入A；可以overwirte
+&amp;gt;&amp;gt; append，而不是overwrite
+&amp;lt; 从A中提取X
+| pipe character:
+sudo: &amp;ldquo;do as super user (root)&amp;rdquo;, 以root的身份执行以下命令
+sudo su: 更改为root身份 （exit退出root shell）
+/sys：并不是存在于电脑中实际的file，而是various kernal parameters $ : not running as root.
+# : running as root
+tee: 把input写入文件并把input显示出来
+grep: 搜索
+find
+xdg-open: 传递一个filename，他会以合适的program打开file
+Shell 能实现的作用：
+assign variables (记得$)
+source：用于在当前 Shell 会话中执行脚本文件的命令。它通常用于执行脚本文件，以便将脚本中定义的环境变量、函数或其他命令引入到当前 Shell 会话中，以供后续命令使用。
+$? :get you the error code from the previous command
+0 : everything goes well 1 : 失败状态码 $_ :get you the last argument from previous command</description>
+    </item>
     <item>
       <title>Stats in SPM12</title>
       <link>https://blushbot.ppfarm.boats/posts/Stats-in-SPM12/</link>
       <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/Stats-in-SPM12/</guid>
       <description>&lt;p&gt;Specify the stats&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Creating a New Theme</title>
       <link>https://blushbot.ppfarm.boats/posts/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/creating-a-new-theme/</guid>
       <description>Introduction # This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
-    
     <item>
       <title>Migrate to Hugo from Jekyll</title>
       <link>https://blushbot.ppfarm.boats/posts/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/migrate-from-jekyll/</guid>
       <description>Move static content to static # Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
-    
     <item>
       <title>fMRI brain image preprocessing(SPM12)</title>
       <link>https://blushbot.ppfarm.boats/posts/Preprocessing/</link>
       <pubDate>Tue, 20 Jun 2023 16:21:37 +0900</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/Preprocessing/</guid>
       <description>&lt;p&gt;Convert, FieldMap , 以及Preproceesing&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>(Hu)go Template Primer</title>
       <link>https://blushbot.ppfarm.boats/posts/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/goisforlovers/</guid>
       <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
 This document is a brief primer on using Go templates.</description>
     </item>
-    
     <item>
       <title>Getting Started with Hugo</title>
       <link>https://blushbot.ppfarm.boats/posts/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo # Go to Hugo releases and download the appropriate version for your OS and architecture.
 Save it somewhere specific as we will be using it in the next step.
@@ -77,15 +89,12 @@ More complete instructions are available at Install Hugo
 Step 2. Build the Docs # Hugo has its own example site which happens to also be the documentation site you are reading right now.
 Follow the following steps:</description>
     </item>
-    
     <item>
       <title></title>
       <link>https://blushbot.ppfarm.boats/posts/Bayesian/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://blushbot.ppfarm.boats/posts/Bayesian/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

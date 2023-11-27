@@ -5,6 +5,7 @@
     <link>https://blushbot.ppfarm.boats/docs/example/collapsed/</link>
     <description>Recent content on Hugo Book</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://blushbot.ppfarm.boats/docs/example/collapsed/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="https://blushbot.ppfarm.boats/docs/example/collapsed/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
