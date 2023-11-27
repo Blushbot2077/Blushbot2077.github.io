@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content="🐽宝的手记">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blushbot.ppfarm.boats/docs/example/collapsed/" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Computational mechanism" />
+<meta property="og:description" content="🐽宝的手记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blushbot.ppfarm.boats/posts/Computonal_mechanism/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-20T23:07:35+09:00" />
+<meta property="article:modified_time" content="2023-06-20T23:07:35+09:00" />
 
-<title>Collapsed | Hugo Book</title>
+<title>Computational mechanism | Hugo Book</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" >
 <link rel="stylesheet" href="/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css" integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz&#43;OQteg=" crossorigin="anonymous">
@@ -19,7 +21,6 @@
   <script defer src="/en.search.min.a302220eb707d2770bbb9686e046db29481c447f31510a4edf8fa7dea1963490.js" integrity="sha256-owIiDrcH0ncLu5aG4EbbKUgcRH8xUQpO34&#43;n3qGWNJA=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://blushbot.ppfarm.boats/docs/example/collapsed/index.xml" title="Hugo Book" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -128,9 +129,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-4e46b01272d410b3a99461d79326ddf4" class="toggle" checked />
+    <input type="checkbox" id="section-4e46b01272d410b3a99461d79326ddf4" class="toggle"  />
     <label for="section-4e46b01272d410b3a99461d79326ddf4" class="flex justify-between">
-      <a role="button" class="active">Collapsed</a>
+      <a role="button" class="">Collapsed</a>
     </label>
   
 
@@ -407,7 +408,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Collapsed</strong>
+  <strong>Computational mechanism</strong>
 
   <label for="toc-control">
     
@@ -421,7 +422,17 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#三rw-与贝叶斯模型的结合pomdp">三、RW 与贝叶斯模型的结合：POMDP</a></li>
+        <li><a href="#实现计算模型相关的toolbox">实现计算模型相关的toolbox</a></li>
+        <li><a href="#四社会学习的神经机制">四、社会学习的神经机制</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -432,7 +443,71 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"></article>
+<article class="markdown">
+  <h1>
+    <a href="/posts/Computonal_mechanism/">Computational mechanism</a>
+  </h1>
+  
+  <h5>June 20, 2023</h5>
+
+
+
+  
+
+  
+  <div>
+    
+      <a href="/tags/Neuroscience/">Neuroscience</a>
+  </div>
+  
+
+
+
+<p>🐽宝的手记</p>
+<h2 id="三rw-与贝叶斯模型的结合pomdp">
+  三、RW 与贝叶斯模型的结合：POMDP
+  <a class="anchor" href="#%e4%b8%89rw-%e4%b8%8e%e8%b4%9d%e5%8f%b6%e6%96%af%e6%a8%a1%e5%9e%8b%e7%9a%84%e7%bb%93%e5%90%88pomdp">#</a>
+</h2>
+<p><strong>POMDP</strong> (partially observable Markov decision process, 部分可观察的马尔科夫决策过程), 源自 MDP，因此具备强化学习的属性。</p>
+<p>然而，在真实的社会情境中, 人们不能准确掌握环境的真实的状态(i.e., 他人的道德品质), 仅能通过感官获得一部分能反映状态的观测值(i.e., 外显的行为), 此时人们<strong>利用观测值形成对真实状态的概率估计</strong>, MDP 则变成POMDP。</p>
+<p>包含的变量：</p>
+<blockquote>
+<p>人们获得的观测值：<em>Z</em></p>
+<p>状态先验条件下的观测值似然函数：<em>O</em></p>
+</blockquote>
+<p>POMDP 具备贝叶斯属性：</p>
+<p>在 POMDP 中，人们根据状态的后验信念，也就是信念状态（belief state）做出决策，而信念状态的更新则基于贝叶斯信息更新方式。</p>
+<blockquote>
+<p>后验信念 = (先验信念 × 似然度) / 证据</p>
+<ul>
+<li>
+<p>先验信念：考虑任何新的证据之前，我们对事件或假设的信念或概率分布。</p>
+</li>
+<li>
+<p>似然度：在给定新的数据或观察的条件下，事件或假设成立的概率。</p>
+</li>
+<li>
+<p>证据：观察到的数据或证据的概率。</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>IPOMDP</strong>：（Interactive POMDP），与 POMDP 相比，对状态的估计还包括了对他人模型的估计。</p>
+<h2 id="实现计算模型相关的toolbox">
+  实现计算模型相关的toolbox
+  <a class="anchor" href="#%e5%ae%9e%e7%8e%b0%e8%ae%a1%e7%ae%97%e6%a8%a1%e5%9e%8b%e7%9b%b8%e5%85%b3%e7%9a%84toolbox">#</a>
+</h2>
+<ul>
+<li>hBayesDM toolbox (R, python)</li>
+<li>HGF toolbox (Matlab)</li>
+<li>VBA toolbox  (Matlab)</li>
+<li>CBM toolbox (Matlab)</li>
+</ul>
+<br>
+<hr>
+<h2 id="四社会学习的神经机制">
+  四、社会学习的神经机制
+  <a class="anchor" href="#%e5%9b%9b%e7%a4%be%e4%bc%9a%e5%ad%a6%e4%b9%a0%e7%9a%84%e7%a5%9e%e7%bb%8f%e6%9c%ba%e5%88%b6">#</a>
+</h2></article>
  
       
 
@@ -457,6 +532,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -467,7 +546,17 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#三rw-与贝叶斯模型的结合pomdp">三、RW 与贝叶斯模型的结合：POMDP</a></li>
+        <li><a href="#实现计算模型相关的toolbox">实现计算模型相关的toolbox</a></li>
+        <li><a href="#四社会学习的神经机制">四、社会学习的神经机制</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
  

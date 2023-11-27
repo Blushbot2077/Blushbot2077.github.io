@@ -16,7 +16,7 @@
 <link rel="icon" href="/favicon.png" >
 <link rel="stylesheet" href="/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css" integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz&#43;OQteg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.2019c0b4fa1aaf668c38b754297f22df0a0568166055206e2f3b34bad4e6de86.js" integrity="sha256-IBnAtPoar2aMOLdUKX8i3woFaBZgVSBuLzs0utTm3oY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a302220eb707d2770bbb9686e046db29481c447f31510a4edf8fa7dea1963490.js" integrity="sha256-owIiDrcH0ncLu5aG4EbbKUgcRH8xUQpO34&#43;n3qGWNJA=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://blushbot.ppfarm.boats/posts/index.xml" title="Hugo Book" />
@@ -428,16 +428,6 @@ https://github.com/alex-shpak/hugo-book
       <strong>Categories</strong>
       <ul>
       
-        <li class="flex justify-between">
-          <a href="/categories/Development/">Development</a>
-          <span>2</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/categories/golang/">golang</a>
-          <span>2</span>
-        </li>
-      
       </ul>
     </li>
     
@@ -453,42 +443,22 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
         <li class="flex justify-between">
+          <a href="/tags/shell/">shell</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
           <a href="/tags/SPM12-statistical-analysis/">SPM12 statistical analysis</a>
-          <span>2</span>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/Neuroscience/">Neuroscience</a>
+          <span>1</span>
         </li>
       
         <li class="flex justify-between">
           <a href="/tags/SPM12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SPM12学习笔记</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/development/">development</a>
-          <span>2</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/go/">go</a>
-          <span>2</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/golang/">golang</a>
-          <span>2</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/hugo/">hugo</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/templates/">templates</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/themes/">themes</a>
           <span>1</span>
         </li>
       
@@ -549,31 +519,14 @@ https://github.com/alex-shpak/hugo-book
   
   <div>
     
-      <a href="/tags/SPM12-statistical-analysis/">SPM12 statistical analysis</a>
+      <a href="/tags/shell/">shell</a>
   </div>
   
 
 
 
 
-    <p>cat 可以读取并显示文件内容
-&gt; angle bracket sign: 可以把X写入A；可以overwirte
-&gt;&gt; append，而不是overwrite
-&lt; 从A中提取X
-| pipe character:
-sudo: &ldquo;do as super user (root)&rdquo;, 以root的身份执行以下命令
-sudo su: 更改为root身份 （exit退出root shell）
-/sys：并不是存在于电脑中实际的file，而是various kernal parameters $ : not running as root.
-# : running as root
-tee: 把input写入文件并把input显示出来
-grep: 搜索
-find
-xdg-open: 传递一个filename，他会以合适的program打开file
-Shell 能实现的作用：
-assign variables (记得$)
-source：用于在当前 Shell 会话中执行脚本文件的命令。它通常用于执行脚本文件，以便将脚本中定义的环境变量、函数或其他命令引入到当前 Shell 会话中，以供后续命令使用。
-$? :get you the error code from the previous command
-0 : everything goes well 1 : 失败状态码 $_ :get you the last argument from previous command
+    <p><p>小笔记中～</p>
         <a href="/posts/Shell%E7%9B%B8%E5%85%B3%E5%B0%8F%E7%AC%94%E8%AE%B0/">...</a>
       
     </p>
@@ -608,47 +561,27 @@ $? :get you the error code from the previous command
   
   <article class="markdown book-post">
     <h2>
-      <a href="/posts/creating-a-new-theme/">Creating a New Theme</a>
+      <a href="/posts/Computonal_mechanism/">Computational mechanism</a>
     </h2>
     
-  <h5>September 28, 2014</h5>
+  <h5>June 20, 2023</h5>
 
 
 
   
 
   
-
-
-
-
-    <p>Introduction # This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.
-We&rsquo;ll start with creating a new site with a very basic template.
-        <a href="/posts/creating-a-new-theme/">...</a>
-      
-    </p>
-  </article>
-  
-  <article class="markdown book-post">
-    <h2>
-      <a href="/posts/migrate-from-jekyll/">Migrating from Jekyll</a>
-    </h2>
+  <div>
     
-  <h5>March 10, 2014</h5>
-
-
-
-  
-
+      <a href="/tags/Neuroscience/">Neuroscience</a>
+  </div>
   
 
 
 
 
-    <p>Move static content to static # Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &lt;root&gt;/ ▾ images/ logo.png should become
-▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.
-        <a href="/posts/migrate-from-jekyll/">...</a>
+    <p><p>🐽宝的手记</p>
+        <a href="/posts/Computonal_mechanism/">...</a>
       
     </p>
   </article>
@@ -676,84 +609,6 @@ We&rsquo;ll start with creating a new site with a very basic template.
 
     <p><p>Convert, FieldMap , 以及Preproceesing</p>
         <a href="/posts/Preprocessing/">...</a>
-      
-    </p>
-  </article>
-  
-  <article class="markdown book-post">
-    <h2>
-      <a href="/posts/goisforlovers/">(Hu)go Template Primer</a>
-    </h2>
-    
-  <h5>April 2, 2014</h5>
-
-
-
-  
-  <div>
-    
-      <a href="/categories/Development/">Development</a>, 
-      <a href="/categories/golang/">golang</a>
-  </div>
-  
-
-  
-  <div>
-    
-      <a href="/tags/go/">go</a>, 
-      <a href="/tags/golang/">golang</a>, 
-      <a href="/tags/templates/">templates</a>, 
-      <a href="/tags/themes/">themes</a>, 
-      <a href="/tags/development/">development</a>
-  </div>
-  
-
-
-
-
-    <p>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.
-        <a href="/posts/goisforlovers/">...</a>
-      
-    </p>
-  </article>
-  
-  <article class="markdown book-post">
-    <h2>
-      <a href="/posts/hugoisforlovers/">Getting Started with Hugo</a>
-    </h2>
-    
-  <h5>April 2, 2014</h5>
-
-
-
-  
-  <div>
-    
-      <a href="/categories/Development/">Development</a>, 
-      <a href="/categories/golang/">golang</a>
-  </div>
-  
-
-  
-  <div>
-    
-      <a href="/tags/go/">go</a>, 
-      <a href="/tags/golang/">golang</a>, 
-      <a href="/tags/hugo/">hugo</a>, 
-      <a href="/tags/development/">development</a>
-  </div>
-  
-
-
-
-
-    <p>Step 1. Install Hugo # Go to Hugo releases and download the appropriate version for your OS and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at Install Hugo
-Step 2. Build the Docs # Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
-        <a href="/posts/hugoisforlovers/">...</a>
       
     </p>
   </article>
@@ -819,16 +674,6 @@ Follow the following steps:
       <strong>Categories</strong>
       <ul>
       
-        <li class="flex justify-between">
-          <a href="/categories/Development/">Development</a>
-          <span>2</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/categories/golang/">golang</a>
-          <span>2</span>
-        </li>
-      
       </ul>
     </li>
     
@@ -844,42 +689,22 @@ Follow the following steps:
         </li>
       
         <li class="flex justify-between">
+          <a href="/tags/shell/">shell</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
           <a href="/tags/SPM12-statistical-analysis/">SPM12 statistical analysis</a>
-          <span>2</span>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/Neuroscience/">Neuroscience</a>
+          <span>1</span>
         </li>
       
         <li class="flex justify-between">
           <a href="/tags/SPM12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SPM12学习笔记</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/development/">development</a>
-          <span>2</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/go/">go</a>
-          <span>2</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/golang/">golang</a>
-          <span>2</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/hugo/">hugo</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/templates/">templates</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/themes/">themes</a>
           <span>1</span>
         </li>
       

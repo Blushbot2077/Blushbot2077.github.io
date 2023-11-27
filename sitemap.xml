@@ -17,12 +17,6 @@
     <loc>https://blushbot.ppfarm.boats/posts/Stats-in-SPM12/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blushbot.ppfarm.boats/posts/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/posts/migrate-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blushbot.ppfarm.boats/docs/example/table-of-contents/</loc>
   </url><url>
     <loc>https://blushbot.ppfarm.boats/docs/example/collapsed/</loc>
@@ -39,47 +33,23 @@
     <loc>https://blushbot.ppfarm.boats/tags/</loc>
     <lastmod>2023-10-19T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://blushbot.ppfarm.boats/tags/shell/</loc>
+    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blushbot.ppfarm.boats/tags/SPM12-statistical-analysis/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blushbot.ppfarm.boats/posts/Computonal_mechanism/</loc>
+    <lastmod>2023-06-20T23:07:35+09:00</lastmod>
+  </url><url>
+    <loc>https://blushbot.ppfarm.boats/tags/Neuroscience/</loc>
+    <lastmod>2023-06-20T23:07:35+09:00</lastmod>
   </url><url>
     <loc>https://blushbot.ppfarm.boats/posts/Preprocessing/</loc>
     <lastmod>2023-06-20T16:21:37+09:00</lastmod>
   </url><url>
     <loc>https://blushbot.ppfarm.boats/tags/SPM12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-06-20T16:21:37+09:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/posts/goisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/categories/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/tags/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/categories/Development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/posts/hugoisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/tags/go/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/tags/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/categories/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/tags/hugo/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/tags/templates/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blushbot.ppfarm.boats/tags/themes/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blushbot.ppfarm.boats/docs/example/collapsed/3rd-level/4th-level/</loc>
   </url><url>
@@ -113,7 +83,7 @@
   </url><url>
     <loc>https://blushbot.ppfarm.boats/posts/Bayesian/</loc>
   </url><url>
-    <loc>https://blushbot.ppfarm.boats/archives/</loc>
+    <loc>https://blushbot.ppfarm.boats/categories/</loc>
   </url><url>
     <loc>https://blushbot.ppfarm.boats/docs/</loc>
   </url>

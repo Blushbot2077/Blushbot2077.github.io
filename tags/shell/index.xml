@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on Hugo Book</title>
+    <link>https://blushbot.ppfarm.boats/tags/shell/</link>
+    <description>Recent content in shell on Hugo Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blushbot.ppfarm.boats/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell little note</title>
+      <link>https://blushbot.ppfarm.boats/posts/Shell%E7%9B%B8%E5%85%B3%E5%B0%8F%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://blushbot.ppfarm.boats/posts/Shell%E7%9B%B8%E5%85%B3%E5%B0%8F%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;小笔记中～&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
